@@ -1,0 +1,70 @@
+{% extends "AcmeTestBundle::layout.html.twig" %}
+{% block body %}
+    <div class="container">
+
+        <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{path('acme_test_homepage')}}">Home</a></li>
+                        <li><a href="{{ path('acme_test_about') }}">About</a></li>
+                        <li><a href="{{ path('acme_test_guest') }}">GuestBook</a></li>
+                    </ul>
+                </div>
+                <!-- /.nav-collapse -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /.navbar -->
+
+        <div class="container">
+
+            <div class="row row-offcanvas row-offcanvas-right">
+
+                <div class="col-xs-12 col-sm-9">
+
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('acme_test_homepage') }}">Home</a></li>
+                        <li class="active">Detail</li>
+                    </ol>
+
+                    <div class="row">
+                        <div class="page-header">
+                            <a href="{{ path('acme_test_homepage') }}">
+                                <h1>{{ post.title }}</h1>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#" class="thumbnail" style="float: left; margin-right: 10px">
+                                <img width="400" src="http://englishwell.info/uploads/taginator/Nov-2013/image.jpg"/>
+                            </a>
+                            <p class="lead" style="text-align: justify">  {{ post.textPost }}</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                {% include 'AcmeTestBundle::Blog/template/mostViewed.html.twig' %}
+                {% include 'AcmeTestBundle::Blog/template/lastPostGuestBook.html.twig' %}
+            </div>
+            <!--/row-->
+
+            <hr>
+
+            <footer>
+                <p>&copy; Company 2013</p>
+            </footer>
+
+        </div>
+        <!--/.container-->
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script src="offcanvas.js"></script>
+    </div>
+{% endblock body %}

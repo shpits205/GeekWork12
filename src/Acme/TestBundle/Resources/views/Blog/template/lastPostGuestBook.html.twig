@@ -1,0 +1,16 @@
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+    <div class="panel panel-default">
+        <div class="panel-heading">Last post guest book</div>
+        <ul class="nav nav-pills nav-stacked">
+            {% for post in lastGuest %}
+                <li style="margin: 3px">
+                    <a href="{{ path('acme_test_guest') }}">
+                        {{ "%.30s"|format(post.message) }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+

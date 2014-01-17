@@ -1,0 +1,71 @@
+{% extends "AcmeTestBundle::layout.html.twig" %}
+{% block body %}
+    <div class="container">
+
+        <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{ path('acme_test_homepage') }}">Home</a></li>
+                        <li><a href="{{ path('acme_test_about') }}">About</a></li>
+                        <li><a href="{{ path('acme_test_guest') }}">GuestBook</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row row-offcanvas row-offcanvas-right">
+                <div class="col-xs-12 col-sm-9">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('acme_test_homepage') }}">Home</a></li>
+                        <li class="active">About</li>
+                    </ol>
+                    <div class="row">
+                        <div class="page-header">
+                            <a href="{{ path('acme_test_homepage') }}">
+                                <h1>About me!</h1>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#" class="thumbnail" style="float: left; margin-right: 10px">
+                                <img width="400" src="http://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"/>
+                            </a>
+
+                            <p class="lead" style="text-align: justify"> Ukraine (Listeni/juːˈkreɪn/; Ukrainian:
+                                Україна, transliterated: Ukrayina, [ukrɑˈjinɑ]) is a country in Eastern Europe. Ukraine
+                                borders the Russian Federation to the east and northeast, Belarus to the northwest,
+                                Poland, Slovakia and Hungary to the west, Romania and Moldova to the southwest, and the
+                                Black Sea and Sea of Azov to the south and southeast, respectively. It has an area of
+                                603,628 km2 (233,062 sq mi), making it the largest country entirely within
+                                Europe.
+
+                                The territory of Ukraine has been inhabited for at least forty four thousand years.[11]
+                                It is where the horse was first domesticated[12] and a candidate site of the origins of
+                                the Proto-Indo-European language family.
+
+                                In the Middle ages, the area was a key center of East Slavic culture, before being
+                                divided between a variety of powers. A Cossack republic flowered for a century in the
+                                early modern period, but Ukraine remained otherwise divided until its consolidation into
+                                a Soviet republic in the twentieth century, becoming independent in 1991.
+
+                                Ukraine has long been a world breadbasket due to its fertile conditions. The country, as
+                                of 2011, was the world's third-largest grain exporter. In 2011 the harvest was much
+                                larger than average harvest and export fees had been lowered.[15] Ukraine is one of ten
+                                most attractive agricultural land acquisition regions.</p>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                {% include 'AcmeTestBundle::Blog/template/mostViewed.html.twig' %}
+                {% include 'AcmeTestBundle::Blog/template/lastPostGuestBook.html.twig' %}
+            </div>
+            <hr>
+            <footer>
+                <p>&copy; Company 2013</p>
+            </footer>
+        </div>
+    </div>
+{% endblock body %}

@@ -1,0 +1,85 @@
+{% extends "AcmeTestBundle::layoutguest.html.twig" %}
+{% block body %}
+    <div class="container">
+
+        <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{ path('acme_test_homepage') }}">Home</a></li>
+                        <li><a href="{{ path('acme_test_about') }}">About</a></li>
+                        <li class="active"><a href="{{ path('acme_test_guest') }}">GuestBook</a></li>
+                    </ul>
+                </div>
+                <!-- /.nav-collapse -->
+            </div>
+            <!-- /.container -->
+        </div>
+
+        <div class="col-xs-12 col-sm-9">
+
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {{ form_start(form) }}
+                    <div>
+                        {{ form_label(form.name, label|default(null),{ 'class': 'sr-only' }) }}
+                        {{ form_widget(form.name, { 'attr': {'placeholder': 'input name', 'class': 'input-xxlarge' }} )
+                        }}
+                    </div>
+
+                    <div>
+                        {{ form_label(form.email) }}
+                        {{ form_widget(form.email) }}
+                    </div>
+                    <div>
+                        {{ form_label(form.message) }}
+                        {{ form_widget(form.message) }}
+                    </div>
+                    <div class="clearfix">
+                        <div class="col-sm-5">{{ form_errors(form.name) }}</div>
+                        <div class="col-sm-5">{{ form_errors(form.email) }}</div>
+                        <div class="col-sm-2">&nbsp;</div>
+                        <div class="col-sm-12">{{ form_row(form.message) }}</div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+
+
+            <ol class="breadcrumb">
+                <li><a href="{{ path('acme_test_homepage') }}">Home</a></li>
+                <li class="active">Guestbook</li>
+            </ol>
+
+
+            {% for post in book %}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <a style="color: black"
+                           href="{{ path('acme_test_guest') }}"><h1
+                                    class="panel-title">{{ post.name }}</h1></a>
+
+                        <div class="row">
+                            <div class="col-md-6">published at {{ post.timeAddBook|date('Y-m-d H:i') }} </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            <img class="img-thumbnail" style="float: left; margin-right: 10px" width="150"
+                                 src="http://englishwell.info/uploads/taginator/Nov-2013/image.jpg"/>
+
+                            <p style="text-align: justify">{{ "%.500s"|format(post.message) }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+        </div>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    </div>
+
+
+
+{% endblock body %}

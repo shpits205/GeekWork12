@@ -1,0 +1,25 @@
+acme_test_homepage:
+    pattern:  /home
+    defaults: { _controller: AcmeTestBundle:Default:index }
+
+acme_test_homepage_about:
+    pattern:  /home_tag
+    defaults: { _controller: AcmeTestBundle:Default:tag }
+    methods: [GET, POST]
+
+acme_test_homepage_detail:
+    pattern:  /detail
+    defaults: { _controller: AcmeTestBundle:Default:detailPost }
+    methods: [GET, POST]
+
+acme_test_guest:
+    pattern:  /guest
+    defaults: { _controller: AcmeTestBundle:Default:guest }
+
+acme_test_about:
+    pattern:  /about
+    defaults: { _controller: AcmeTestBundle:Default:about }
+
+acme_test_add:
+    pattern:  /addpost
+    defaults: { _controller: AcmeTestBundle:Default:addPost }
